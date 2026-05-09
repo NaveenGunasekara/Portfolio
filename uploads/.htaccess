@@ -1,0 +1,4 @@
+# Defense-in-depth: never execute PHP (or other scripts) from the uploads directory.
+<FilesMatch "\.(php|phtml|php[0-9]*|phps|cgi|pl|py)$">
+  Require all denied
+</FilesMatch>

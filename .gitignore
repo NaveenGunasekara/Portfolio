@@ -1,0 +1,12 @@
+# User uploads (keep folder structure)
+/uploads/*
+!/uploads/.gitkeep
+!/uploads/.htaccess
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Local overrides (optional)
+/config/local.secret.php

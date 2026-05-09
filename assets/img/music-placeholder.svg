@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-label="Music placeholder">
+  <defs>
+    <radialGradient id="m" cx="30%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="640" rx="48" fill="#0b1020"/>
+  <circle cx="320" cy="300" r="150" fill="url(#m)" opacity="0.85"/>
+  <rect x="170" y="440" width="300" height="24" rx="8" fill="#1f2937"/>
+  <rect x="220" y="488" width="200" height="20" rx="7" fill="#273449"/>
+  <text x="320" y="570" text-anchor="middle" fill="#cbd5e1" font-family="Segoe UI, system-ui, sans-serif" font-size="30" font-weight="700">Music art</text>
+</svg>
