@@ -35,7 +35,7 @@ function portfolio_web_root_prefix(): string
 }
 
 /**
- * Verify imported schema so pages don’t fatal with “table doesn’t exist”.
+ * Verify imported schema so pages don't fatal with "table doesn't exist".
  */
 function portfolio_required_tables(): array
 {
@@ -80,8 +80,9 @@ function portfolio_render_db_error_page(string $title, string $bodyHtml): string
 }
 
 $dsn = sprintf(
-    'mysql:host=%s;dbname=%s;charset=%s',
+    'mysql:host=%s;port=%s;dbname=%s;charset=%s',
     $dbConfig['host'],
+    $dbConfig['port'] ?? '3306',
     $dbConfig['name'],
     $dbConfig['charset']
 );
