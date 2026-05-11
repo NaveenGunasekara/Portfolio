@@ -36,6 +36,31 @@ $counts = [
       --radius:18px;
       --max:1100px;
     }
+    [data-theme="light"]{
+  --bg:#f1f5f9;
+  --panel:#ffffff;
+  --border:#e2e8f0;
+  --text:#0f172a;
+  --muted:#475569;
+  --accent:#4f46e5;
+  --accent2:#0891b2;
+}
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:background .3s,color .3s;
+}
+#theme-toggle{
+  background:none;
+  border:1px solid rgba(148,163,184,.35);
+  color:var(--text);
+  border-radius:10px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-size:16px;
+  transition:border-color .2s;
+}
+#theme-toggle:hover{border-color:var(--text)}
     *{box-sizing:border-box}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:radial-gradient(900px 520px at 15% 0%,rgba(34,211,238,.12),transparent),var(--bg);color:var(--text)}
     a{color:inherit;text-decoration:none}
@@ -79,6 +104,7 @@ $counts = [
         <a href="<?= e(url_for('admin/login.php?logout=1')) ?>">Logout</a>
         <a href="<?= e(url_for('index.php')) ?>">View site</a>
       </nav>
+      <button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark">🌙</button>
     </div>
   </header>
 
@@ -122,5 +148,20 @@ $counts = [
   <footer class="wrap">
     Signed in as <?= e((string) ($_SESSION['admin_username'] ?? '')) ?> · Pure PHP CMS
   </footer>
+  <script>
+function toggleTheme(){
+  var t=document.documentElement;
+  var next=t.getAttribute('data-theme')==='light'?'dark':'light';
+  t.setAttribute('data-theme',next);
+  localStorage.setItem('theme',next);
+  document.getElementById('theme-toggle').textContent=next==='light'?'☀️':'🌙';
+}
+(function(){
+  var saved=localStorage.getItem('theme')||'dark';
+  document.documentElement.setAttribute('data-theme',saved);
+  var btn=document.getElementById('theme-toggle');
+  if(btn) btn.textContent=saved==='light'?'☀️':'🌙';
+})();
+</script>
 </body>
 </html>
